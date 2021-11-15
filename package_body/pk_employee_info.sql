@@ -163,6 +163,9 @@ AS
       WHEN p_employee_name IS NULL
       THEN
         l_response := 'Unable to create Employee Record. Employee name is null';
+      WHEN length(p_employee_name) > 50
+      THEN
+        l_response := 'Unable to create Employee Record. Employee name max length is 50';
       WHEN p_job_title IS NULL
       THEN
         l_response := 'Unable to create Employee Record. Job title is null';
