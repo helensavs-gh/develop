@@ -320,9 +320,18 @@ BEGIN
                           ,p_department_id     => 2
                           ,p_expected_result   => 'Unable to create Employee Record.');
 
+  test_pr_insert_employee (p_employee_id       => 90017
+                          ,p_employee_name     => 'A very very very very very very very very very very very long name'         -- too long
+                          ,p_job_title         => 'Manager'
+                          ,p_manager_id        => NULL
+                          ,p_date_hired        => TRUNC (SYSDATE)
+                          ,p_salary            => 200000
+                          ,p_department_id     => 2
+                          ,p_expected_result   => 'Unable to create Employee Record.');
+
   -- expected success conditions
 
-  test_pr_insert_employee (p_employee_id       => 90017
+  test_pr_insert_employee (p_employee_id       => 90018
                           ,p_employee_name     => 'Fred Bloggs'
                           ,p_job_title         => 'Manager'
                           ,p_manager_id        => NULL
@@ -332,7 +341,7 @@ BEGIN
                           ,p_department_id     => NULL
                           ,p_expected_result   => 'OK');
 
-  test_pr_insert_employee (p_employee_id       => 90018
+  test_pr_insert_employee (p_employee_id       => 90019
                           ,p_employee_name     => 'Wilma Flintstone'
                           ,p_job_title         => 'Manager'
                           ,p_manager_id        => NULL
@@ -341,7 +350,7 @@ BEGIN
                           ,p_department_name   => 'Management'
                           ,p_expected_result   => 'OK');
 
-  test_pr_insert_employee (p_employee_id       => 90019
+  test_pr_insert_employee (p_employee_id       => 90020
                           ,p_employee_name     => 'Barney Rubble'
                           ,p_job_title         => 'Manager'
                           ,p_manager_id        => NULL
